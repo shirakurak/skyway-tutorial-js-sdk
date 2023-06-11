@@ -1,12 +1,14 @@
 import { nowInSec, SkyWayAuthToken, SkyWayContext, SkyWayRoom, SkyWayStreamFactory, uuidV4 } from '@skyway-sdk/room';
 
+const config = require('./config');
+
 const token = new SkyWayAuthToken({
   jti: uuidV4(),
   iat: nowInSec(),
   exp: nowInSec() + 60 * 60 * 24,
   scope: {
     app: {
-      id: 'ここにアプリケーションIDをペーストしてください',
+      id: config.appId,
       turn: true,
       actions: ['read'],
       channels: [
@@ -41,7 +43,7 @@ const token = new SkyWayAuthToken({
       ],
     },
   },
-}).encode('ここにシークレットキーをペーストしてください');
+}).encode(config.secretKey);
 
 (async () => {
   const localVideo = document.getElementById('local-video');
