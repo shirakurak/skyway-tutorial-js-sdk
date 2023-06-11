@@ -13,6 +13,7 @@
     "@skyway-sdk/room": "^1.4.0"
   },
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.9.2"
   }
 }

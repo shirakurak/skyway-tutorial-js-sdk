@@ -11,3 +11,7 @@ use v18.16.0
 $ node -v
 v18.16.0
 ```
+
+```sh
+npm run dev
+```
