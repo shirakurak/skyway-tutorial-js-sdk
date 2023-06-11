@@ -42,3 +42,10 @@ const token = new SkyWayAuthToken({
     },
   },
 }).encode('ここにシークレットキーをペーストしてください');
+
+(async () => {
+  const localVideo = document.getElementById('local-video');
+  const { audio, video } = await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
+  video.attach(localVideo);
+  await localVideo.play();
+})();
